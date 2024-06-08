@@ -5,11 +5,12 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import CheckboxCard from "../components/CheckboxCard";
 import { Button } from "@mantine/core";
+import { Loader } from "@mantine/core";
 
 export default function Home() {
   const [selectedAreas, setSelectedAreas] = useState([]);
   const router = useRouter(); // Safe to use here after specifying "use client"
-
+  const [isLoading, setIsLoading] = useState(false);
   const handleSelectionChange = (area) => {
     setSelectedAreas((prev) => {
       if (prev.includes(area)) {
@@ -21,11 +22,15 @@ export default function Home() {
   };
 
   const handleNextClick = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      router.push("/source", { areas: selectedAreas.join(",") });
+    }, 2000);
     // router.push({
     //   href: "/source",
     //   query: { areas: selectedAreas.join(",") },
     // });
-    router.push("/source", { areas: selectedAreas.join(",") });
   };
 
   return (
@@ -57,10 +62,11 @@ export default function Home() {
       </div>
       <Button
         fullWidth
+        rightSection={isLoading ? <Loader size={12} color="white" /> : <></>}
         onClick={handleNextClick}
         className="items-center px-16 py-6 mb-7 text-white whitespace-nowrap bg-indigo-500 rounded-2xl"
       >
-        Next
+        {!isLoading ? "Next" : "Fetching sources"}
       </Button>
     </div>
   );
