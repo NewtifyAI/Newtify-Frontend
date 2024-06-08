@@ -44,7 +44,9 @@ export default function Home() {
           src="https://cdn.builder.io/api/v1/image/assets/TEMP/ac3818d66149cbd650b96b9417c373066c9e795634642d5d03057179fd8e09a8?"
           className="self-center aspect-square w-[76px]"
         />
-        <div className="mt-6 text-2xl mb-6">What's your email address?</div>
+        <div className="mt-6 text-2xl mb-6">
+          What&apos;s your email address?
+        </div>
         <Input
           variant="filled"
           className="mb-4"

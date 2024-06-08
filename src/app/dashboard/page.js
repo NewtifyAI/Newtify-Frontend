@@ -88,9 +88,9 @@ export default function Home() {
         </div>
         <div className="mt-6 text-xs font-medium text-neutral-500">
           • Students confident human skills will prevail over AI in workforce.{" "}
-          <br />• Nvidia's Jensen Huang leads AI boom, dubbed &quot;Taylor Swift
-          of Tech.&quot; <br />• AI privacy debates, tech workers upskilling,
-          and AI assistant capabilities tested.
+          <br />• Nvidia&apos;s Jensen Huang leads AI boom, dubbed &quot;Taylor
+          Swift of Tech.&quot; <br />• AI privacy debates, tech workers
+          upskilling, and AI assistant capabilities tested.
         </div>
         <div className="mt-8 text-xs font-medium text-neutral-500">Sources</div>
         <div className="flex gap-1.5 self-start mt-2">
@@ -120,14 +120,14 @@ export default function Home() {
         />
         <div className="mt-3 text-stone-300">Recommended Reading</div>
         <div className="mt-2 text-base text-black">
-          AI's Role in Tomorrow's Workforce:{" "}
+          AI&apos; Role in Tomorrow&apos;s Workforce:{" "}
         </div>
         <div className="mt-5 text-neutral-500">
-          Ravin Jesuthasan discussed AI's impact on work at the Milken Institute
-          Global Conference, emphasizing its role in reshaping skills, enhancing
-          transparency, and fostering growth. He advocated for inclusive,
-          sustainable strategies and highlighted the need for continuous
-          education and adaptive leadership to navigate the evolving
+          Ravin Jesuthasan discussed AI&apos;s impact on work at the Milken
+          Institute Global Conference, emphasizing its role in reshaping skills,
+          enhancing transparency, and fostering growth. He advocated for
+          inclusive, sustainable strategies and highlighted the need for
+          continuous education and adaptive leadership to navigate the evolving
           technological landscape effectively.
         </div>
       </div>
