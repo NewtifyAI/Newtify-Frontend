@@ -39,7 +39,7 @@ export default function Home() {
           className="self-center aspect-square w-[76px]"
         />
         <div className="mt-6 text-2xl mb-6">
-          How frequent would you like the newsletter?
+          How frequently would you like to receive the newsletter?
         </div>
         <CheckboxCard
           title="Daily"

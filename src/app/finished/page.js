@@ -45,10 +45,10 @@ export default function Home() {
         className="self-center aspect-square w-[76px] mt-10"
       />
       <div className="self-center text-xl mt-6 font-medium text-black">
-        You're All Set!
+        You&apos;re All Set!
       </div>
       <div className="self-center text-sm mt-4 font-normal text-grey">
-        You'll receive your newsletter every week!
+        You&apos;ll receive your newsletter every week!
       </div>
     </div>
   );
