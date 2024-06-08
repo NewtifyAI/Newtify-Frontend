@@ -8,6 +8,13 @@ import CheckboxImageCard from "../../components/CheckboxImageCard";
 import { Button } from "@mantine/core";
 import { Input } from "@mantine/core";
 
+import {
+  IconPhoto,
+  IconDownload,
+  IconArrowRight,
+  IconPlus,
+} from "@tabler/icons-react";
+
 export default function Home() {
   const [selectedAreas, setSelectedAreas] = useState([]);
   const router = useRouter(); // Safe to use here after specifying "use client"
@@ -27,45 +34,116 @@ export default function Home() {
     //   href: "/source",
     //   query: { areas: selectedAreas.join(",") },
     // });
-    router.push("/source", { areas: selectedAreas.join(",") });
+    router.push("/finish");
   };
 
   return (
-    <div className="flex flex-col justify-between px-10 pt-10 pb-16 mx-auto w-full text-base font-medium text-black bg-zinc-50 max-w-[480px] h-screen">
-      <div>
+    <div className="flex flex-col px-7 pt-14 mx-auto w-full bg-zinc-50 max-w-[480px]">
+      <div className="self-center text-xl font-medium text-black">
+        Customise your Newsletter
+      </div>
+      <div className="flex gap-4 mt-5">
+        <div className="flex flex-col flex-1 items-start px-6 py-5 font-medium text-white bg-indigo-400 rounded-3xl border-2 border-solid shadow-sm border-zinc-100">
+          <img
+            loading="lazy"
+            srcSet="https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678116-calendar-512.png"
+            className="rounded-md aspect-square w-[27px]"
+          />
+          <div className="mt-4 text-m">9th June</div>
+          <div className="mt-2 text-xs">#42 Newsletter</div>
+        </div>
+        <div className="flex flex-col flex-1 items-start px-4 py-5 text-xs bg-white rounded-3xl border-2 border-solid shadow-sm border-zinc-100 text-neutral-500">
+          <img
+            loading="lazy"
+            srcSet="https://static-00.iconduck.com/assets.00/product-hunt-icon-1024x1024-fn061r87.png"
+            className="aspect-square w-[31px]"
+          />
+          <div className="mt-2.5 text-base font-medium text-black">
+            Product Hunt
+          </div>
+          <div className="mt-2.5 font-medium">
+            <span className="font-bold">31 </span>new launches
+          </div>
+          {/* <div className="mt-4 font-bold">Trending:</div>
+          <div className="mt-2">Notion.AI</div>
+          <div className="mt-2">Relevance.AI</div>
+          <div className="mt-2">Perplexity</div> */}
+        </div>
+      </div>
+      <div className="flex flex-col py-5 pr-2 pl-6 mt-4 w-full bg-white rounded-3xl border-2 border-solid shadow-sm border-zinc-100">
         <img
           loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/ac3818d66149cbd650b96b9417c373066c9e795634642d5d03057179fd8e09a8?"
-          className="self-center aspect-square w-[76px]"
+          srcSet="https://cdn.builder.io/api/v1/image/assets/TEMP/ac3818d66149cbd650b96b9417c373066c9e795634642d5d03057179fd8e09a8?"
+          className="rounded-md aspect-square w-[27px]"
         />
-        <div className="mt-6 text-2xl mb-6">
-          We picked these sources for you.
+        <div className="mt-3.5 text-base font-medium text-black">
+          Daily Summary
         </div>
-        <CheckboxImageCard
-          title="HackerNews"
-          onClick={() => handleSelectionChange("HackerNews")}
-          description="Latest news about AI"
-          imageSrc="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Y_Combinator_logo.svg/640px-Y_Combinator_logo.svg.png"
-          checked={selectedAreas.includes("HackerNewsAI")}
-        />
-        <CheckboxImageCard
-          title="Product Hunt"
-          onClick={() => handleSelectionChange("HackerNews")}
-          description="Latest news about AI"
-          imageSrc="https://static-00.iconduck.com/assets.00/product-hunt-icon-1024x1024-fn061r87.png"
-          checked={selectedAreas.includes("HackerNewsAI")}
-        />
+        <div className="mt-6 text-xs font-medium text-neutral-500">
+          • Students confident human skills will prevail over AI in workforce.{" "}
+          <br />• Nvidia's Jensen Huang leads AI boom, dubbed &quot;Taylor Swift
+          of Tech.&quot; <br />• AI privacy debates, tech workers upskilling,
+          and AI assistant capabilities tested.
+        </div>
+        <div className="mt-8 text-xs font-medium text-neutral-500">Sources</div>
+        <div className="flex gap-1.5 self-start mt-2">
+          {" "}
+          <img
+            loading="lazy"
+            srcSet="https://static-00.iconduck.com/assets.00/product-hunt-icon-1024x1024-fn061r87.png"
+            className="shrink-0 w-4 aspect-square"
+          />
+          <img
+            loading="lazy"
+            srcSet="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Y_Combinator_logo.svg/640px-Y_Combinator_logo.svg.png"
+            className="shrink-0 w-4 aspect-square"
+          />
+          <img
+            loading="lazy"
+            srcSet="https://upload.wikimedia.org/wikipedia/commons/4/41/BBC_Logo_2021.svg"
+            className="shrink-0 my-auto aspect-[3.45] w-[34px]"
+          />
+        </div>
       </div>
-      <div className="gap-4">
-        <Input variant="filled" className="mb-4" placeholder="Add new source" />
-        <Button
-          fullWidth
-          onClick={handleNextClick}
-          className="items-center px-16 py-6 mb-7 mt-2  text-white whitespace-nowrap bg-indigo-500 rounded-2xl"
-        >
-          Next
-        </Button>
+      <div className="flex flex-col py-6 pr-2 pl-6 mt-6 text-xs font-medium bg-white rounded-3xl border-2 border-solid shadow-sm border-zinc-100">
+        <img
+          loading="lazy"
+          srcSet="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Y_Combinator_logo.svg/640px-Y_Combinator_logo.svg.png"
+          className="aspect-square w-[27px]"
+        />
+        <div className="mt-3 text-stone-300">Recommended Reading</div>
+        <div className="mt-2 text-base text-black">
+          AI's Role in Tomorrow's Workforce:{" "}
+        </div>
+        <div className="mt-5 text-neutral-500">
+          Ravin Jesuthasan discussed AI's impact on work at the Milken Institute
+          Global Conference, emphasizing its role in reshaping skills, enhancing
+          transparency, and fostering growth. He advocated for inclusive,
+          sustainable strategies and highlighted the need for continuous
+          education and adaptive leadership to navigate the evolving
+          technological landscape effectively.
+        </div>
       </div>
+      <Button
+        variant="light"
+        className="mt-4 mb-16"
+        rightSection={<IconPlus size={14} />}
+      >
+        New Section
+      </Button>
+      <Button
+        style={{
+          position: "fixed",
+          bottom: "20px",
+          right: "20px",
+          zIndex: 1000, // Ensure it floats above all other content
+        }}
+        // leftSection={<IconPhoto size={14} />}
+        rightSection={<IconArrowRight size={14} />}
+        onClick={() => router.push("/gallery")}
+      >
+        Finish
+      </Button>
     </div>
   );
 }

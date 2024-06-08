@@ -27,7 +27,7 @@ export default function Home() {
     //   href: "/source",
     //   query: { areas: selectedAreas.join(",") },
     // });
-    router.push("/configure", { areas: selectedAreas.join(",") });
+    router.push("/email", { areas: selectedAreas.join(",") });
   };
 
   return (
@@ -39,25 +39,25 @@ export default function Home() {
           className="self-center aspect-square w-[76px]"
         />
         <div className="mt-6 text-2xl mb-6">
-          We picked these sources for you.
+          How frequent would you like the newsletter?
         </div>
-        <CheckboxImageCard
-          title="HackerNews"
-          onClick={() => handleSelectionChange("HackerNews")}
-          description="Latest news about AI"
-          imageSrc="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Y_Combinator_logo.svg/640px-Y_Combinator_logo.svg.png"
-          checked={selectedAreas.includes("HackerNewsAI")}
+        <CheckboxCard
+          title="Daily"
+          onClick={() => handleSelectionChange("Daily")}
+          checked={selectedAreas.includes("Daily")}
         />
-        <CheckboxImageCard
-          title="Product Hunt"
-          onClick={() => handleSelectionChange("HackerNews")}
-          description="Latest news about AI"
-          imageSrc="https://static-00.iconduck.com/assets.00/product-hunt-icon-1024x1024-fn061r87.png"
-          checked={selectedAreas.includes("HackerNewsAI")}
+        <CheckboxCard
+          title="Weekly"
+          onClick={() => handleSelectionChange("Weekly")}
+          checked={selectedAreas.includes("Weekly")}
+        />
+        <CheckboxCard
+          title="Monthly"
+          onClick={() => handleSelectionChange("Monthly")}
+          checked={selectedAreas.includes("Monthly")}
         />
       </div>
       <div className="gap-4">
-        <Input variant="filled" className="mb-4" placeholder="Add new source" />
         <Button
           fullWidth
           onClick={handleNextClick}
