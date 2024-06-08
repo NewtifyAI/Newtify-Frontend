@@ -3,8 +3,10 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import CheckboxCard from "../components/CheckboxCard";
+import CheckboxCard from "../../components/CheckboxCard";
+import CheckboxImageCard from "../../components/CheckboxImageCard";
 import { Button } from "@mantine/core";
+import { Input } from "@mantine/core";
 
 export default function Home() {
   const [selectedAreas, setSelectedAreas] = useState([]);
@@ -36,32 +38,34 @@ export default function Home() {
           src="https://cdn.builder.io/api/v1/image/assets/TEMP/ac3818d66149cbd650b96b9417c373066c9e795634642d5d03057179fd8e09a8?"
           className="self-center aspect-square w-[76px]"
         />
-        <div className="mt-6 text-2xl">
-          What area are you interested in learning?
+        <div className="mt-6 text-2xl mb-6">
+          We picked these sources for you.
         </div>
-        <CheckboxCard
-          title="AI"
-          onClick={() => handleSelectionChange("AI")}
-          checked={selectedAreas.includes("AI")}
+        <CheckboxImageCard
+          title="HackerNews"
+          onClick={() => handleSelectionChange("HackerNews")}
+          description="Latest news about AI"
+          imageSrc="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Y_Combinator_logo.svg/640px-Y_Combinator_logo.svg.png"
+          checked={selectedAreas.includes("HackerNewsAI")}
         />
-        <CheckboxCard
-          title="Technology & Science"
-          onClick={() => handleSelectionChange("Technology & Science")}
-          checked={selectedAreas.includes("Technology & Science")}
-        />
-        <CheckboxCard
-          title="Entertainment"
-          onClick={() => handleSelectionChange("Entertainment")}
-          checked={selectedAreas.includes("Entertainment")}
+        <CheckboxImageCard
+          title="Product Hunt"
+          onClick={() => handleSelectionChange("HackerNews")}
+          description="Latest news about AI"
+          imageSrc="https://static-00.iconduck.com/assets.00/product-hunt-icon-1024x1024-fn061r87.png"
+          checked={selectedAreas.includes("HackerNewsAI")}
         />
       </div>
-      <Button
-        fullWidth
-        onClick={handleNextClick}
-        className="items-center px-16 py-6 mb-7 text-white whitespace-nowrap bg-indigo-500 rounded-2xl"
-      >
-        Next
-      </Button>
+      <div className="gap-4">
+        <Input variant="filled" className="mb-4" placeholder="Add new source" />
+        <Button
+          fullWidth
+          onClick={handleNextClick}
+          className="items-center px-16 py-6 mb-7 mt-2  text-white whitespace-nowrap bg-indigo-500 rounded-2xl"
+        >
+          Next
+        </Button>
+      </div>
     </div>
   );
 }
