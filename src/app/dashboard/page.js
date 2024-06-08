@@ -7,6 +7,7 @@ import CheckboxCard from "../../components/CheckboxCard";
 import CheckboxImageCard from "../../components/CheckboxImageCard";
 import { Button } from "@mantine/core";
 import { Input } from "@mantine/core";
+import { Loader } from "@mantine/core";
 
 import {
   IconPhoto,
@@ -18,6 +19,7 @@ import {
 export default function Home() {
   const [selectedAreas, setSelectedAreas] = useState([]);
   const router = useRouter(); // Safe to use here after specifying "use client"
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSelectionChange = (area) => {
     setSelectedAreas((prev) => {
@@ -34,7 +36,12 @@ export default function Home() {
     //   href: "/source",
     //   query: { areas: selectedAreas.join(",") },
     // });
-    router.push("/finish");
+    // router.push("/finished");
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      router.push("/finished");
+    }, 3000);
   };
 
   return (
@@ -139,8 +146,9 @@ export default function Home() {
           zIndex: 1000, // Ensure it floats above all other content
         }}
         // leftSection={<IconPhoto size={14} />}
+        leftSection={isLoading ? <Loader size={12} color="white" /> : <></>}
         rightSection={<IconArrowRight size={14} />}
-        onClick={() => router.push("/gallery")}
+        onClick={() => handleNextClick()}
       >
         Finish
       </Button>
